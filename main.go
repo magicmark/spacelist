@@ -1,8 +1,5 @@
 package main
 
-// An example program demonstrating the pager component from the Bubbles
-// component library.
-
 import (
 	"flag"
 	"fmt"
@@ -33,13 +30,6 @@ var header = func() []string {
 
 	return ansifonts.RenderTextWithOptions("spacelist", font, options)
 }()
-
-// footerStrings = []string{
-// 		"Press Esc or Ctrl+C to quit",
-// 		"https://github.com/magicmark/spacelist",
-// 		"v0.1.0",
-// 	}
-// )
 
 type Window struct {
 	AppName     string `json:"app-name"`

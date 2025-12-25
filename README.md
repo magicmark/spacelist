@@ -1,6 +1,8 @@
-# Spacelist (sl)
+# spacelist (sl)
 
 A beautiful terminal UI for viewing all windows across your Aerospace window manager spaces.
+
+![](./screenshot.png)
 
 ## Features
 
@@ -51,4 +53,3 @@ The application:
 - [Bubble Tea](https://github.com/charmbracelet/bubbletea) - TUI framework
 - [Bubbles](https://github.com/charmbracelet/bubbles) - TUI components (text input)
 - [Lip Gloss](https://github.com/charmbracelet/lipgloss) - Styling and layout
-# spacelist
