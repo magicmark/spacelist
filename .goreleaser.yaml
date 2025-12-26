@@ -20,7 +20,7 @@ builds:
 
 archives:
   - id: spacelist
-    format: tar.gz
+    formats: [tar.gz]
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
     files:
       - README.md
@@ -38,11 +38,14 @@ changelog:
       - "^chore:"
       - "^ci:"
 
-brews:
+homebrew_casks:
   - name: spacelist
     homepage: "https://github.com/magicmark/spacelist"
     description: "A beautiful terminal UI for viewing all windows across your Aerospace window manager spaces"
-    license: "AGPL-3.0"
+
+    # Specify the binary to install
+    binaries:
+      - spacelist
 
     # Create a tap repository at github.com/magicmark/homebrew-tap
     repository:
@@ -50,8 +53,8 @@ brews:
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
 
-    # The folder inside the repository where the formula will be placed
-    folder: Formula
+    # The folder inside the repository where the cask will be placed
+    directory: Casks
 
     # Caveats to display after installation
     caveats: |
@@ -64,11 +67,4 @@ brews:
 
     # Dependencies
     dependencies:
-      - name: aerospace
-        type: optional
-
-    install: |
-      bin.install "spacelist"
-
-    test: |
-      system "#{bin}/spacelist", "--version"
+      - formula: aerospace
