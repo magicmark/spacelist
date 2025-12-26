@@ -10,6 +10,10 @@ fmt:
 clean:
 	git clean -fdx
 
+release-%:
+	git tag -a "v$*"
+	git push origin "v$*"
+
 help:
 	@echo "Available targets:"
 	@echo "  build    - Build the spacelist binary"

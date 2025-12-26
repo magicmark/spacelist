@@ -27,8 +27,8 @@ brew install magicmark/tap/spacelist
 make install
 
 # Or manually
-go build -o sl
-cp sl /usr/local/bin/sl
+go build -o spacelist
+cp spacelist /usr/local/bin/spacelist
 ```
 
 ## Usage
@@ -36,18 +36,14 @@ cp sl /usr/local/bin/sl
 Simply run:
 
 ```bash
-sl
+spacelist
 ```
 
 ### Controls
 
 - Type to filter windows by application name (case-insensitive)
 - `Esc` or `Ctrl+C` to quit
-
-## Requirements
-
-- Go 1.21 or later
-- [Aerospace](https://github.com/nikitabobko/AeroSpace) window manager
+- `Enter` to focus the selected window and quit spacelist
 
 ## How it works
 
