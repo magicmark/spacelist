@@ -1,0 +1,74 @@
+version: 2
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: spacelist
+    main: .
+    binary: sl
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+
+archives:
+  - id: spacelist
+    format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - README.md
+      - LICENSE*
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
+      - "^ci:"
+
+brews:
+  - name: spacelist
+    homepage: "https://github.com/magicmark/spacelist"
+    description: "A beautiful terminal UI for viewing all windows across your Aerospace window manager spaces"
+    license: "AGPL-3.0"
+
+    # Create a tap repository at github.com/magicmark/homebrew-tap
+    repository:
+      owner: magicmark
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+
+    # The folder inside the repository where the formula will be placed
+    folder: Formula
+
+    # Caveats to display after installation
+    caveats: |
+      spacelist (sl) is now installed!
+
+      Requirements:
+        - Aerospace window manager must be installed
+
+      Run 'sl' to start the application.
+
+    # Dependencies
+    dependencies:
+      - name: aerospace
+        type: optional
+
+    install: |
+      bin.install "sl"
+
+    test: |
+      system "#{bin}/sl", "--version"

@@ -14,6 +14,14 @@ A beautiful terminal UI for viewing all windows across your Aerospace window man
 
 ## Installation
 
+### Homebrew (recommended)
+
+```bash
+brew install magicmark/tap/spacelist
+```
+
+### From source
+
 ```bash
 # Build and install
 make install

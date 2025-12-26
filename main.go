@@ -33,7 +33,7 @@ var header = func() []string {
 
 type Window struct {
 	AppName     string `json:"app-name"`
-	WindowID	int	   `json:"window-id"`
+	WindowID    int    `json:"window-id"`
 	WindowTitle string `json:"window-title"`
 }
 
@@ -116,14 +116,14 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 			m.viewport.SetContent(m.ViewportContent())
 		} else if k == "down" {
-			if m.selectedIdx >= m.GetVisibleWindowsCount() - 1 {
+			if m.selectedIdx >= m.GetVisibleWindowsCount()-1 {
 				m.selectedIdx = 0
 			} else {
 				m.selectedIdx = m.selectedIdx + 1
 			}
 			m.viewport.SetContent(m.ViewportContent())
 		} else if k == "enter" {
-			window := m.GetSelectedWindow()	
+			window := m.GetSelectedWindow()
 			if window != nil {
 				window.Focus()
 				return m, tea.Quit

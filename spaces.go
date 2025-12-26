@@ -6,8 +6,8 @@ import (
 	"github.com/charmbracelet/lipgloss"
 	"log"
 	"os/exec"
-	"strings"
 	"strconv"
+	"strings"
 )
 
 // Workspace represents an aerospace workspace
