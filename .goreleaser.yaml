@@ -40,23 +40,18 @@ changelog:
 
 homebrew_casks:
   - name: spacelist
+    ids:
+      - spacelist
+    binaries:
+      - spacelist
     homepage: "https://github.com/magicmark/spacelist"
     description: "A beautiful terminal UI for viewing all windows across your Aerospace window manager spaces"
 
-    # Specify the binary to install
-    binaries:
-      - spacelist
-
-    # Create a tap repository at github.com/magicmark/homebrew-tap
     repository:
       owner: magicmark
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
 
-    # The folder inside the repository where the cask will be placed
-    directory: Casks
-
-    # Caveats to display after installation
     caveats: |
       spacelist is now installed!
 
@@ -64,7 +59,3 @@ homebrew_casks:
         - Aerospace window manager must be installed
 
       Run 'spacelist' to start the application.
-
-    # Dependencies
-    dependencies:
-      - formula: aerospace
