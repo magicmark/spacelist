@@ -1,4 +1,4 @@
-# spacelist (sl)
+# spacelist
 
 A beautiful terminal UI for viewing all windows across your Aerospace window manager spaces.
 
@@ -41,7 +41,7 @@ spacelist
 
 ## FAQs
 
-**`Apple could not verify...`**
+### **`Apple could not verify...`**
 
 Run this to launch spacelist from a CLI wrapper:
 
