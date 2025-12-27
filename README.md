@@ -41,7 +41,7 @@ spacelist
 
 ## FAQs
 
-### **`Apple could not verify...`**
+### **`Apple could not verify...`
 
 Run this to launch spacelist from a CLI wrapper:
 
