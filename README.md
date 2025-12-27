@@ -39,6 +39,16 @@ Simply run:
 spacelist
 ```
 
+## FAQs
+
+**`Apple could not verify...`**
+
+Run this to launch spacelist from a CLI wrapper:
+
+```bash
+xattr -d com.apple.quarantine /opt/homebrew/bin/spacelist
+```
+
 ### Controls
 
 - Type to filter windows by application name (case-insensitive)
