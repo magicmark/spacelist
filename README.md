@@ -39,21 +39,22 @@ Simply run:
 spacelist
 ```
 
+### Controls
+
+- Type to filter windows by application name (case-insensitive)
+- `Esc` or `Ctrl+C` to quit
+- `Enter` to focus the selected window and quit spacelist
+
+
 ## FAQs
 
-### **`Apple could not verify...`
+#### **`Apple could not verify...`
 
 Run this to launch spacelist from a CLI wrapper:
 
 ```bash
 xattr -d com.apple.quarantine /opt/homebrew/bin/spacelist
 ```
-
-### Controls
-
-- Type to filter windows by application name (case-insensitive)
-- `Esc` or `Ctrl+C` to quit
-- `Enter` to focus the selected window and quit spacelist
 
 ## How it works
 
