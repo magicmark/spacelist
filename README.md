@@ -23,10 +23,6 @@ brew install magicmark/tap/spacelist
 ### From source
 
 ```bash
-# Build and install
-make install
-
-# Or manually
 go build -o spacelist
 cp spacelist /usr/local/bin/spacelist
 ```
