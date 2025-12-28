@@ -6,17 +6,11 @@ import (
 	"github.com/charmbracelet/lipgloss"
 	"log"
 	"os/exec"
-	"strconv"
 	"strings"
 )
 
-// Workspace represents an aerospace workspace
-type ListWorkspaceOutput struct {
-	Name string `json:"workspace"`
-}
-
-func (w Window) Focus() {
-	cmd := exec.Command("aerospace", "focus", "--window-id", strconv.Itoa(w.WindowID))
+func (w Window) FocusWorkspace() {
+	cmd := exec.Command("aerospace", "workspace", w.Workspace.Name)
 	if output, err := cmd.CombinedOutput(); err != nil {
 		log.Fatal(fmt.Sprint(err) + string(output))
 	}
@@ -29,12 +23,13 @@ func GetWorkspaces() []Workspace {
 		log.Fatal(err)
 	}
 
-	var _workspaces []ListWorkspaceOutput
+	var _workspaces []struct {
+		Name string `json:"workspace"`
+	}
 	if err := json.Unmarshal(output, &_workspaces); err != nil {
 		log.Fatal(err)
 	}
 
-	// Get windows for each workspace
 	var workspaces []Workspace
 	for _, ws := range _workspaces {
 		cmd := exec.Command("aerospace", "list-windows", "--workspace", ws.Name, "--json")
@@ -48,11 +43,14 @@ func GetWorkspaces() []Workspace {
 			continue
 		}
 
+		workspace := Workspace{Name: ws.Name, Windows: windows}
+
+		for i := range windows {
+			windows[i].Workspace = &workspace
+		}
+
 		if len(windows) > 0 {
-			workspaces = append(workspaces, Workspace{
-				Name:    ws.Name,
-				Windows: windows,
-			})
+			workspaces = append(workspaces, workspace)
 		}
 	}
 

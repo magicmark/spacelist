@@ -13,6 +13,8 @@ import (
 	"github.com/superstarryeyes/bit/ansifonts"
 )
 
+var Version = "unknown" // overriden by -ldflags
+
 var header = func() []string {
 	font, err := ansifonts.LoadFont("rasterforge")
 	if err != nil {
@@ -35,6 +37,7 @@ type Window struct {
 	AppName     string `json:"app-name"`
 	WindowID    int    `json:"window-id"`
 	WindowTitle string `json:"window-title"`
+	Workspace   *Workspace
 }
 
 type Workspace struct {
@@ -125,7 +128,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		} else if k == "enter" {
 			window := m.GetSelectedWindow()
 			if window != nil {
-				window.Focus()
+				window.FocusWorkspace()
 				return m, tea.Quit
 			}
 		} else if m.ready {
@@ -205,7 +208,13 @@ func (m model) footerView() string {
 
 func main() {
 	windowID := flag.String("id", "", "Window ID for identification")
+	versionFlag := flag.Bool("version", false, "print version information")
 	flag.Parse()
+
+	if *versionFlag {
+		fmt.Printf("v%s\n", Version)
+		return
+	}
 
 	if *windowID != "" {
 		fmt.Printf("\033]0;spacelist-%s\007", *windowID)
