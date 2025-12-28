@@ -38,11 +38,9 @@ changelog:
       - "^chore:"
       - "^ci:"
 
-homebrew_casks:
+brews:
   - name: spacelist
     ids:
-      - spacelist
-    binaries:
       - spacelist
     homepage: "https://github.com/magicmark/spacelist"
     description: "A beautiful terminal UI for viewing all windows across your Aerospace window manager spaces"
