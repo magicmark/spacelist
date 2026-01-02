@@ -4,6 +4,11 @@ A beautiful terminal UI for viewing all windows across your Aerospace window man
 
 ![](./screenshot.png)
 
+## Tip!
+
+Hotkey spacelist to open in a new terminal in the center of your screen for an experience
+similar to spotlight. WIP but check out `launcher.sh` in this repo.
+
 ## Features
 
 - Lists all windows organized by workspace
