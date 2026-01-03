@@ -4,32 +4,10 @@ A beautiful terminal UI for viewing all windows across your Aerospace window man
 
 ![](./screenshot.png)
 
-## Tip!
-
-Hotkey spacelist to open in a new terminal in the center of your screen for an experience
-similar to spotlight. WIP but check out `launcher.sh` in this repo.
-
-## Features
-
-- Lists all windows organized by workspace
-- Real-time filtering by application name
-- Beautiful TUI with syntax highlighting using Bubble Tea
-- Shows workspace names, application names, and window titles
-- Only displays workspaces that contain windows
-
 ## Installation
-
-### Homebrew (recommended)
 
 ```bash
 brew install magicmark/tap/spacelist
-```
-
-### From source
-
-```bash
-go build -o spacelist
-cp spacelist /usr/local/bin/spacelist
 ```
 
 ## Usage
@@ -40,22 +18,21 @@ Simply run:
 spacelist
 ```
 
-### Controls
+> [!TIP]
+> Hotkey spacelist to open in a new terminal in the center of your screen for
+> an experience similar to spotlight. WIP but check out `launcher.sh`.
 
-- Type to filter windows by application name (case-insensitive)
-- `Esc` or `Ctrl+C` to quit
-- `Enter` to focus the selected window and quit spacelist
+## Roadmap
 
+Checkout out [ROADMAP.md](./ROADMAP.md).
 
-## FAQs
+## Features
 
-#### Error: `Apple could not verify...`
-
-Run this to launch spacelist from a CLI wrapper:
-
-```bash
-xattr -d com.apple.quarantine /opt/homebrew/bin/spacelist
-```
+- Lists all windows organized by workspace
+- Real-time filtering by application name
+- Beautiful TUI with syntax highlighting using Bubble Tea
+- Shows workspace names, application names, and window titles
+- Only displays workspaces that contain windows
 
 ## How it works
 
